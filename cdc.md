@@ -164,56 +164,6 @@ Chaque modèle est conçu pour tirer parti des constantes fondamentales dès sa 
 
 project_root/
 │
-├── src/
-│   ├── image_model/
-│   │   ├── image_model.py           # Implémentation du modèle pour les images
-│   │   └── __init__.py
-│   │
-│   ├── text_model/
-│   │   ├── text_model.py            # Implémentation du modèle pour le texte
-│   │   └── __init__.py
-│   │
-│   ├── audio_model/
-│   │   ├── audio_model.py           # Implémentation du modèle pour l'audio
-│   │   └── __init__.py
-│   │
-│   ├── audio_model/
-│   │   ├── audio_model.py           # Implémentation du modèle pour l'audio
-│   │   └── __init__.py
-│   │
-│   ├── lstm_model/
-│   │   ├── lstm_model.py           # Implémentation du modèle pour l'audio
-│   │   └── __init__.py
-│   │
-│   ├── video_model/
-│   │   ├── video_model.py           # Implémentation du modèle pour la vidéo
-│   │   └── __init__.py
-│   │
-│   ├── fused_model/
-│   │   ├── fusion.py                # Code pour fusionner les sorties des modèles multimodaux
-│   │   └── final_model.py           # Implémentation du modèle fusionné final
-│   │
-│   ├── utils/
-│   │   ├── data_utils.py            # Utilitaires pour la préparation des données
-│   │   ├── constants.py             # Les constantes et concepts mathématiques
-│   │   └── evaluation.py            # Méthodes d’auto-évaluation
-│   │
-│   └── __init__.py
-│
-├── train/
-│   ├── train_image_model.py         # Script pour entraîner le modèle image
-│   ├── train_text_model.py          # Script pour entraîner le modèle texte
-│   ├── train_audio_model.py         # Script pour entraîner le modèle audio
-│   ├── train_video_model.py         # Script pour entraîner le modèle vidéo
-│   └── train_fused_model.py         # Script pour entraîner le modèle final fusionné
-│
-├── fintuning/
-│   ├── finetune_image_model.py      # Scripts pour affiner les modèles individuels
-│   ├── finetune_text_model.py
-│   ├── finetune_audio_model.py
-│   ├── finetune_video_model.py
-│   └── finetune_fused_model.py
-│
 ├── data/
 │   ├── raw/                         # Données brutes
 │   │   ├── images/
@@ -230,9 +180,74 @@ project_root/
 │   ├── final_model.pth              # Modèle fusionné entraîné et sauvegardé
 │   └── __init__.py
 │
-├── tools_ia/
-│   ├── __init__.py              
-│   └── 
+├── fintuning/
+│   ├── finetune_image_model.py      # Scripts pour affiner les modèles individuels
+│   ├── finetune_text_model.py
+│   ├── finetune_audio_model.py
+│   ├── finetune_video_model.py
+│   ├── finetune_lstm_model.py
+│   ├── finetune_decision_tree_model.py
+│   ├── finetune_lcm_model.py        # Affinage du modèle LCM
+│   └── finetune_fused_model.py
+│
+├── src/
+│   ├── audio_model/
+│   │   ├── audio_model.py           # Implémentation du modèle pour l'audio
+│   │   └── __init__.py
+│   │
+│   ├── decision_trees_model/
+│   │   ├── decision_tree_model.py   # Implémentation de l'arbre de décision
+│   │   └── __init__.py
+│   │
+│   ├── fused_model/
+│   │   ├── fusion.py                # Code pour fusionner les sorties des modèles multimodaux
+│   │   └── final_model.py           # Implémentation du modèle fusionné final
+│   │
+│   ├── image_model/
+│   │   ├── image_model.py           # Implémentation du modèle pour les images
+│   │   └── __init__.py
+│   │
+│   ├── lcm_model/
+│   │   ├── lcm_model.py             # Implémentation du modèle LCM (Large Concept Model)
+│   │   └── __init__.py
+│   │
+│   ├── lstm_model/
+│   │   ├── lstm_model.py            # Implémentation du modèle LSTM
+│   │   └── __init__.py
+│   │
+│   ├── text_model/
+│   │   ├── text_model.py            # Implémentation du modèle pour le texte
+│   │   └── __init__.py
+│   │
+│   ├── utils_model/
+│   │   ├── data_utils.py            # Utilitaires pour la préparation des données
+│   │   ├── constants.py             # Les constantes et concepts mathématiques
+│   │   ├── evaluation.py            # Méthodes d’auto-évaluation
+│   │   ├── auto_lvl_up.py           # Module d’auto-amélioration
+│   │   └── __init__.py
+│   │
+│   ├── video_model/
+│   │   ├── video_model.py           # Implémentation du modèle pour la vidéo
+│   │   └── __init__.py
+│   │
+│   └── __init__.py
+│
+├── tools/
+│   ├── __init__.py
+│   └── ...                          # Différents outils pour étendre les capacités du modèle final
+│
+├── train/
+│   ├── train_image_model.py         # Script pour entraîner le modèle image
+│   ├── train_text_model.py          # Script pour entraîner le modèle texte
+│   ├── train_audio_model.py         # Script pour entraîner le modèle audio
+│   ├── train_video_model.py         # Script pour entraîner le modèle vidéo
+│   ├── train_lstm_model.py          # Script pour entraîner le modèle LSTM
+│   ├── train_decision_tree_model.py # Script pour entraîner l'arbre de décision
+│   ├── train_lcm_model.py           # Script pour entraîner le modèle LCM
+│   └── train_fused_model.py         # Script pour entraîner le modèle final fusionné
 │
 ├── cdc.md                           # Cahier des charges détaillé
-└── dev_book.md                      # Documentation de développement
+├── dev_book.md                      # Documentation de développement
+├── LICENSE                          # Licence du projet
+└── README.md                        # Fichier de présentation du projet
+
